@@ -15,6 +15,7 @@ Scenario: Healers restore all health
 	   And Cast a healing spell               
 	Then My health should now be 100
 
+
  #Given I have the following magical items
  #Then My total magical power should be 700
 Scenario: Total magical power
@@ -25,6 +26,7 @@ Scenario: Total magical power
    | Gloves | 100   | 400   |
    Then My total magical power should be 700
 
+
 #Given I last slept 3 days ago
 #And I read a restore health scroll
 Scenario: Reading a restore health scroll when over tired has no effect
@@ -33,8 +35,9 @@ When  I take 40 damage
    And I read a restore health scroll
   Then My health should now be 60
 
-   #Given I have the following weapons
-   #Then My weapons should be worth 100
+
+#Given I have the following weapons
+#Then My weapons should be worth 100
 Scenario: Weapons are worth money
   Given I have the following weapons
          | name  | value |
@@ -43,3 +46,12 @@ Scenario: Weapons are worth money
          | knife | 10    |
 
    Then My weapons should be worth 100
+
+#And I havae an Amulet with a power of 200
+#When  I use a magical Amulet
+#Then  The Amulet power should not be reduced
+Scenario: Elf race characters don't lose magical item power
+Given I'm an Elf
+  And I have an Amulet with a power of 200
+When  I use a magical Amulet
+Then  The Amulet power should not be reduced

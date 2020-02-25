@@ -40,7 +40,7 @@ namespace GameCore
 
         public void UseMagicalItem(string itemName) {
             int powerReduction = 10;
-            if (Race == "Elf") {
+            if (Race == "Elf") { // yes, we gave Elf
                 powerReduction = 0;
             }
             var itemToReduce = MagicalItems.First(item => item.Name == itemName);
